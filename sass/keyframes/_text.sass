@@ -1,0 +1,36 @@
+@use '../functions'
+
+@mixin expand-line($delay, $duration)
+    animation: text-expand-line functions.calc-frame-time($duration) functions.calc-frame-time($delay) forwards
+
+@keyframes text-expand-line
+    0%
+        width: 0%
+    100%
+        width: 100%
+
+@mixin blur-clean($delay, $duration)
+    animation: text-blur-clean functions.calc-frame-time($duration) functions.calc-frame-time($delay) forwards
+
+@keyframes text-blur-clean
+    0%
+        opacity: .7
+        transform: rotate(-4deg) scale(1.05)
+        filter: blur(1rem)
+    100%
+        opacity: .7
+        transform: rotate(-4deg) scale(1)
+        filter: blur(0rem)
+
+@mixin minimize-scale($delay, $duration)
+    animation: text-minimize-scale functions.calc-frame-time($duration) functions.calc-frame-time($delay) forwards
+
+@keyframes text-minimize-scale
+    0%
+        transform: scale(1)
+    99%
+        transform: scale(0.9)
+        opacity: 1
+    100%
+        transform: scale(0.95)
+        opacity: 0

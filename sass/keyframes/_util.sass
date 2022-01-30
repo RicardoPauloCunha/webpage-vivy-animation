@@ -1,0 +1,31 @@
+@use '../variables'
+@use '../functions'
+
+@mixin hide-show($delay, $duration)
+    animation: util-hide-show functions.calc-frame-time($duration) functions.calc-frame-time($delay) forwards
+
+@keyframes util-hide-show
+    0%
+        opacity: 0
+    1%, 100%
+        opacity: 1
+
+@mixin hide-show-hide($delay, $duration)
+    animation: util-hide-show-hide functions.calc-frame-time($duration) functions.calc-frame-time($delay) forwards
+
+@keyframes util-hide-show-hide
+    0%
+        opacity: 0
+    1%, 99%
+        opacity: 1
+    100%
+        opacity: 0
+
+@mixin show-hide($delay)
+    animation: util-show-hide functions.calc-frame-time(0.1) functions.calc-frame-time($delay) forwards
+
+@keyframes util-show-hide
+    0%, 99%
+        opacity: 1
+    100%
+        opacity: 0

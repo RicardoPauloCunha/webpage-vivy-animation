@@ -1,0 +1,4 @@
+@function calc-frame-time($number-frames)
+    $total-frames: 100
+    $total-seconds: 32
+    @return calc(($number-frames / $total-frames) * $total-seconds) + 0s
